@@ -1,0 +1,155 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>David Mods</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: white;
+      text-align: center;
+    }
+
+    .contenedor {
+      max-width: 500px;
+      margin: 50px auto;
+      padding: 25px;
+    }
+
+    h1 {
+      font-size: 32px;
+    }
+
+    .boton {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 16px;
+      margin: 15px 0;
+      border-radius: 10px;
+      text-decoration: none;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+
+    .whatsapp {
+      background: #25D366;
+    }
+
+    .telegram {
+      background: #229ED9;
+    }
+
+    .continuar {
+      background: #555;
+    }
+
+    .continuar.activo {
+      background: #ff9800;
+    }
+
+    .archivo {
+      display: none;
+      margin-top: 25px;
+      padding: 20px;
+      background: #222;
+      border-radius: 12px;
+    }
+
+    .descargar {
+      display: block;
+      padding: 15px;
+      background: #00c853;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="contenedor">
+
+    <h1>🔥 David Mods 🔥</h1>
+
+    <p>Sigue los canales y después pulsa Continuar.</p>
+
+    <a
+      class="boton whatsapp"
+      href="https://whatsapp.com/channel/0029VbDFfPV3rZZlfhalcL0O"
+      target="_blank"
+      onclick="completarWhatsApp()">
+      📱 Seguir WhatsApp
+    </a>
+
+    <a
+      class="boton telegram"
+      href="https://t.me/+OuKbyjCEv74xOGYx"
+      target="_blank"
+      onclick="completarTelegram()">
+      ✈️ Seguir Telegram
+    </a>
+
+    <button
+      id="continuar"
+      class="boton continuar"
+      onclick="mostrarArchivo()"
+      disabled>
+      🔒 Completa los pasos
+    </button>
+
+    <div id="archivo" class="archivo">
+      <h2>📦 Archivo disponible</h2>
+      <p>Proxy Mth Team v22.zip</p>
+
+      <a
+        class="descargar"
+        href="https://www.mediafire.com/file/d79yr1mm3dd5y0y/Proxy_Mth_Team_v22.zip/file"
+        target="_blank">
+        ⬇️ Descargar archivo
+      </a>
+    </div>
+
+  </div>
+
+  <script>
+    let whatsapp = false;
+    let telegram = false;
+
+    function completarWhatsApp() {
+      whatsapp = true;
+      comprobar();
+    }
+
+    function completarTelegram() {
+      telegram = true;
+      comprobar();
+    }
+
+    function comprobar() {
+      if (whatsapp && telegram) {
+        const boton = document.getElementById("continuar");
+
+        boton.disabled = false;
+        boton.classList.add("activo");
+        boton.innerText = "✅ Continuar";
+      }
+    }
+
+    function mostrarArchivo() {
+      if (whatsapp && telegram) {
+        document.getElementById("archivo").style.display = "block";
+        document.getElementById("continuar").style.display = "none";
+      }
+    }
+  </script>
+
+</body>
+</html>
