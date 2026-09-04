@@ -1,0 +1,112 @@
+      href="https://t.me/+OuKbyjCEv74xOGYx"
+      target="_blank"
+      onclick="activarTelegram()">
+      ✈️ Seguir en Telegram
+    </a>
+
+    <!-- CONTINUAR -->
+    <button
+      id="btnContinuar"
+      class="boton continuar"
+      onclick="iniciarCarga()"
+      disabled>
+      🔒 Completa WhatsApp y Telegram
+    </button>
+
+    <!-- CARGA -->
+    <div id="cargando">
+
+      <div id="pagina1" class="pagina activa">
+        <h2>⏳ Preparando archivo...</h2>
+        <div class="spinner"></div>
+        <p>Conectando con el servidor</p>
+      </div>
+
+      <div id="pagina2" class="pagina">
+        <h2>📦 Cargando contenido...</h2>
+        <div class="spinner"></div>
+        <p>Preparando la descarga</p>
+      </div>
+
+      <div id="pagina3" class="pagina">
+        <h2>🔐 Verificando enlace...</h2>
+        <div class="spinner"></div>
+        <p>Un momento...</p>
+      </div>
+
+      <div id="pagina4" class="pagina">
+        <h2>🚀 Casi listo...</h2>
+        <div class="spinner"></div>
+        <p>Generando botón de descarga</p>
+      </div>
+
+    </div>
+
+    <!-- ARCHIVO -->
+    <div id="archivoBox">
+      <div class="check">✅</div>
+      <h2>¡Archivo desbloqueado!</h2>
+      <p>Ya puedes descargarlo.</p>
+
+      <a
+        class="boton archivo"
+        style="display:block"
+        href="https://www.mediafire.com/file/d79yr1mm3dd5y0y/Proxy_Mth_Team_v22.zip/file"
+        target="_blank">
+        📥 Descargar archivo
+      </a>
+    </div>
+
+  </div>
+
+  <script>
+    let whatsapp = false;
+    let telegram = false;
+
+    function actualizarBoton() {
+      const boton = document.getElementById("btnContinuar");
+
+      if (whatsapp && telegram) {
+        boton.disabled = false;
+        boton.style.background = "#2196F3";
+        boton.textContent = "➡️ Continuar";
+      }
+    }
+
+    function activarWhatsApp() {
+      whatsapp = true;
+      setTimeout(actualizarBoton, 500);
+    }
+
+    function activarTelegram() {
+      telegram = true;
+      setTimeout(actualizarBoton, 500);
+    }
+
+    function iniciarCarga() {
+      document.getElementById("btnContinuar").style.display = "none";
+      document.getElementById("cargando").style.display = "block";
+
+      mostrarPagina("pagina1", 0);
+      mostrarPagina("pagina2", 3000);
+      mostrarPagina("pagina3", 6000);
+      mostrarPagina("pagina4", 9000);
+
+      setTimeout(function() {
+        document.getElementById("cargando").style.display = "none";
+        document.getElementById("archivoBox").style.display = "block";
+      }, 12000);
+    }
+
+    function mostrarPagina(id, tiempo) {
+      setTimeout(function() {
+        document.querySelectorAll(".pagina")
+          .forEach(p => p.classList.remove("activa"));
+
+        document.getElementById(id).classList.add("activa");
+      }, tiempo);
+    }
+  </script>
+
+</body>
+</html>
