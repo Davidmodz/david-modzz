@@ -1,0 +1,61 @@
+    <div id="cargando">
+      ⏳ Preparando archivo...
+    </div>
+
+    <!-- ARCHIVO -->
+    <div id="archivo" class="caja-archivo">
+      <h2>📦 Archivo disponible</h2>
+      <p>Tu archivo ya está listo.</p>
+
+      <a
+        class="archivo"
+        href="https://www.mediafire.com/file/544lpjhtvvxl2te/GHOST+MOD+V26,.apk/file"
+        target="_blank">
+        📥 Descargar archivo
+      </a>
+    </div>
+
+  </div>
+
+  <script>
+    let whatsapp = false;
+    let telegram = false;
+
+    function activarWhatsApp() {
+      whatsapp = true;
+      comprobar();
+    }
+
+    function activarTelegram() {
+      telegram = true;
+      comprobar();
+    }
+
+    function comprobar() {
+      if (whatsapp && telegram) {
+        const boton = document.getElementById("btnContinuar");
+
+        boton.disabled = false;
+        boton.classList.add("activo");
+        boton.innerHTML = "▶️ CONTINUAR";
+      }
+    }
+
+    function mostrarArchivo() {
+      const boton = document.getElementById("btnContinuar");
+      const cargando = document.getElementById("cargando");
+      const archivo = document.getElementById("archivo");
+
+      boton.style.display = "none";
+      cargando.style.display = "block";
+
+      // Espera 1 segundo
+      setTimeout(function() {
+        cargando.style.display = "none";
+        archivo.style.display = "block";
+      }, 1000);
+    }
+  </script>
+
+</body>
+</html>
