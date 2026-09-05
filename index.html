@@ -1,134 +1,3 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>David Mods</title>
-
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #111827;
-      color: white;
-      text-align: center;
-    }
-
-    .contenedor {
-      max-width: 500px;
-      margin: auto;
-      padding: 25px 15px;
-    }
-
-    h1 {
-      margin-bottom: 10px;
-    }
-
-    .boton {
-      display: block;
-      width: 90%;
-      margin: 15px auto;
-      padding: 15px;
-      border-radius: 12px;
-      text-decoration: none;
-      color: white;
-      font-size: 18px;
-      font-weight: bold;
-      border: none;
-      cursor: pointer;
-      box-sizing: border-box;
-    }
-
-    .whatsapp {
-      background: #25D366;
-    }
-
-    .telegram {
-      background: #229ED9;
-    }
-
-    .continuar {
-      background: #555;
-    }
-
-    .continuar:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
-
-    #cargando,
-    #archivoBox {
-      display: none;
-      margin-top: 25px;
-      padding: 25px;
-      background: #1f2937;
-      border-radius: 15px;
-    }
-
-    .pagina {
-      display: none;
-    }
-
-    .pagina.activa {
-      display: block;
-    }
-
-    .spinner {
-      width: 45px;
-      height: 45px;
-      margin: 20px auto;
-      border: 5px solid #444;
-      border-top: 5px solid #2196F3;
-      border-radius: 50%;
-      animation: girar 1s linear infinite;
-    }
-
-    @keyframes girar {
-      100% {
-        transform: rotate(360deg);
-      }
-    }
-
-    .check {
-      font-size: 55px;
-    }
-
-    .archivo {
-      background: #16a34a;
-    }
-  </style>
-</head>
-
-<body>
-
-  <div class="contenedor">
-
-    <h1>🔥 David Mods</h1>
-    <p>Completa los pasos para desbloquear el archivo.</p>
-
-    <!-- WHATSAPP -->
-    <a
-      class="boton whatsapp"
-      href="https://whatsapp.com/channel/0029VbDFfPV3rZZlfhalcL0O"
-      target="_blank"
-      onclick="activarWhatsApp()">
-      📱 Seguir en WhatsApp
-    </a>
-
-    <!-- TELEGRAM -->
-    <a
-      class="boton telegram"
-      href="https://t.me/+OuKbyjCEv74xOGYx"
-      target="_blank"
-      onclick="activarTelegram()">
-      ✈️ Seguir en Telegram
-    </a>
-
-    <!-- CONTINUAR -->
-    <button
-      id="btnContinuar"
-      class="boton continuar"
       onclick="iniciarCarga()"
       disabled>
       🔒 Completa WhatsApp y Telegram
@@ -170,13 +39,13 @@
 
       <h2>¡Archivo desbloqueado!</h2>
 
-      <p>Ya puedes descargarlo.</p>
+      <p>GHOST MOD V26 ya está disponible.</p>
 
       <a
         class="boton archivo"
-        href="https://www.mediafire.com/file/d79yr1mm3dd5y0y/Proxy_Mth_Team_v22.zip/file"
+        href="https://www.mediafire.com/file/544lpjhtvvxl2te/GHOST%2BMOD%2BV26%2C.apk/file"
         target="_blank">
-        📥 Descargar archivo
+        📥 Descargar GHOST MOD V26
       </a>
 
     </div>
@@ -202,16 +71,12 @@
     }
 
     function activarWhatsApp() {
-
       whatsapp = true;
-
       setTimeout(actualizarBoton, 500);
     }
 
     function activarTelegram() {
-
       telegram = true;
-
       setTimeout(actualizarBoton, 500);
     }
 
