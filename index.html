@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>David Mods</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #000;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.header {
+  height: 160px;
+  border-bottom: 1px solid #222;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 25px;
+}
+
+.logo {
+  font-size: 55px;
+  font-weight: bold;
+  color: #f5a623;
+}
+
+.menu {
+  font-size: 32px;
+}
+
+.contenedor {
+  max-width: 700px;
+  margin: auto;
+  padding: 35px 14px;
+}
+
+.busqueda {
+  width: 100%;
+  padding: 22px;
+  background: #111;
+  border: 1px solid #333;
+  color: white;
+  font-size: 20px;
+  margin-bottom: 75px;
+}
+
+.publicidad {
+  color: #aaa;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.anuncio {
+  width: 100%;
+  min-height: 420px;
+  border-radius: 25px;
+  background: linear-gradient(135deg, #3b4652, #20252b);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 35px;
+  box-shadow: 0 0 15px rgba(255,255,255,.08);
+}
+
+.anuncio h1 {
+  font-size: 52px;
+  margin: 0 0 45px;
+}
+
+.anuncio p {
+  font-size: 20px;
+  color: #ddd;
+  line-height: 1.5;
+}
+
+.flecha {
+  margin-top: 30px;
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  background: white;
+  color: #222;
+  font-size: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contador {
+  margin-top: 25px;
+  font-size: 18px;
+  color: #aaa;
+}
+
+.boton {
+  border: none;
+  border-radius: 10px;
+  padding: 17px 35px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 25px;
+}
+
+.continuar {
+  background: #f5a623;
+  color: #000;
+}
+
+.continuar:disabled {
+  background: #555;
+  color: #aaa;
+  cursor: not-allowed;
+}
+
+.archivo {
+  display: none;
+  margin-top: 40px;
+  padding: 30px;
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 15px;
+}
+
+.descargar {
+  display: inline-block;
+  background: #f5a623;
+  color: #000;
+  padding: 18px 35px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.volver {
+  margin-top: 70px;
+  color: #aaa;
+  text-align: left;
+  font-size: 18px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="header">
+  <div class="logo">D:</div>
+  <div class="menu">☰</div>
+</header>
+
+<div class="contenedor">
+
+  <input
+    class="busqueda"
+    type="text"
+    placeholder="Buscar mods..."
+  >
+
+  <div class="publicidad">Publicidad</div>
+
+  <div class="anuncio">
+
+    <h1 id="tituloAnuncio">Publicidad</h1>
+
+    <p id="textoAnuncio">
+      Descubre contenido y novedades.
+    </p>
+
+    <div class="flecha">›</div>
+
+  </div>
+
+  <div class="contador" id="contador">
+    Espera 15 segundos...
+  </div>
+
+  <button
+    id="continuar"
+    class="boton continuar"
+    disabled>
+    Continuar
+  </button>
+
+  <div class="archivo" id="archivo">
+
+    <h2>✅ Archivo desbloqueado</h2>
+
+    <p>Ya puedes acceder al archivo.</p>
+
+    <a
+      class="descargar"
+      href="https://www.mediafire.com/file/2x5l5tijyxi21pu/V61~AIMBOT~CHAMPS+32~64🗿.apk/file"
+      target="_blank">
+      📥 DESCARGAR ARCHIVO
+    </a>
+
+  </div>
+
+  <div class="volver">
+    ← Volver para artículos
+  </div>
+
+</div>
+
+<script>
+
+let segundos = 15;
+
+const contador = document.getElementById("contador");
+const continuar = document.getElementById("continuar");
+const anuncio = document.getElementById("tituloAnuncio");
+const texto = document.getElementById("textoAnuncio");
+const archivo = document.getElementById("archivo");
+
+const anuncios = [
+  {
+    titulo: "Trepts",
+    texto: "Descubre nuevos consejos y contenido."
+  },
+  {
+    titulo: "David Mods",
+    texto: "Novedades, aplicaciones y contenido."
+  },
+  {
+    titulo: "Publicidad",
+    texto: "Descubre contenido recomendado."
+  }
+];
+
+let numeroAnuncio = 0;
+
+function iniciarContador() {
+
+  segundos = 15;
+  continuar.disabled = true;
+  contador.textContent = "Espera " + segundos + " segundos...";
+
+  const intervalo = setInterval(() => {
+
+    segundos--;
+
+    contador.textContent =
+      "Espera " + segundos + " segundos...";
+
+    if (segundos <= 0) {
+
+      clearInterval(intervalo);
+
+      contador.textContent = "Puedes continuar";
+      continuar.disabled = false;
+
+    }
+
+  }, 1000);
+}
+
+continuar.addEventListener("click", () => {
+
+  numeroAnuncio++;
+
+  if (numeroAnuncio < anuncios.length) {
+
+    anuncio.textContent =
+      anuncios[numeroAnuncio].titulo;
+
+    texto.textContent =
+      anuncios[numeroAnuncio].texto;
+
+    iniciarContador();
+
+  } else {
+
+    document.querySelector(".anuncio").style.display = "none";
+    contador.style.display = "none";
+    continuar.style.display = "none";
+
+    archivo.style.display = "block";
+  }
+
+});
+
+iniciarContador();
+
+</script>
+
+</body>
+</html>
