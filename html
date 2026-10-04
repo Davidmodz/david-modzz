@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DAVIDLOKS</title>
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #111827;
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
+    }
+
+    .contenedor {
+      width: 90%;
+      max-width: 420px;
+      padding: 35px 20px;
+    }
+
+    h1 {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #cbd5e1;
+      margin-bottom: 30px;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      margin-top: 12px;
+      border: none;
+      border-radius: 10px;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .seguir {
+      background: #25D366;
+      color: white;
+    }
+
+    .continuar {
+      background: #2563eb;
+      color: white;
+    }
+
+    #espera {
+      margin-top: 20px;
+      color: #facc15;
+      font-weight: bold;
+    }
+
+    #continuar {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="contenedor">
+    <h1>DAVIDLOKS</h1>
+
+    <p>Sigue nuestro canal en WhatsApp para continuar.</p>
+
+    <button class="seguir" onclick="seguirCanal()">
+      📲 Seguir canal
+    </button>
+
+    <div id="espera"></div>
+
+    <div id="continuar">
+      <button class="continuar" onclick="continuar()">
+        ➡️ Continuar
+      </button>
+    </div>
+  </div>
+
+  <script>
+    function seguirCanal() {
+      window.open(
+        "https://whatsapp.com/channel/0029Vb9KxEP29756DyrDuc3p",
+        "_blank"
+      );
+
+      let segundos = 3;
+      document.getElementById("espera").innerText =
+        "Espera " + segundos + " segundos...";
+
+      const cuenta = setInterval(function() {
+        segundos--;
+
+        if (segundos > 0) {
+          document.getElementById("espera").innerText =
+            "Espera " + segundos + " segundos...";
+        } else {
+          clearInterval(cuenta);
+          document.getElementById("espera").innerText =
+            "✅ Ya puedes continuar";
+          document.getElementById("continuar").style.display = "block";
+        }
+      }, 1000);
+    }
+
+    function continuar() {
+      alert("¡Continuando!");
+    }
+  </script>
+
+</body>
+</html>
